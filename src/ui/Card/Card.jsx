@@ -33,11 +33,7 @@ export default function Card({
         {action ? (
           <div className="flex">
             <button className="relative mt-4 overflow-hidden rounded-full bg-[#6750a4] px-8 py-2 text-sm font-semibold text-white transition-all  hover:scale-[1.025] active:scale-105">
-              <span className="spark__container">
-                <span className="spark"></span>
-                <span className="spark"></span>
-              </span>
-              <span className="text">{action}</span>
+              {action}
             </button>
           </div>
         ) : null}
