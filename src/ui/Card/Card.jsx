@@ -1,12 +1,16 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
+
 export default function Card({
   headline,
   subhead,
   text,
   action,
   image,
+  link,
   className,
 }) {
+  console.log(link);
   return (
     <article
       className={`${className ? className + " " : ""}card elevated-card group relative flex flex-col`}
@@ -33,7 +37,7 @@ export default function Card({
         {action ? (
           <div className="flex">
             <button className="relative mt-4 overflow-hidden rounded-full bg-[#6750a4] px-8 py-2 text-sm font-semibold text-white transition-all  hover:scale-[1.025] active:scale-105">
-              {action}
+              <Link to={link}>{action}</Link>
             </button>
           </div>
         ) : null}

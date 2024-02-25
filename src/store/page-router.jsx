@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Landing from "../components/Landing";
-import GlowButton from "../ui/Buttons/GlowButton";
+import GlowButton from "../pages/Buttons/GlowButton";
 import NotFoundPage from "../components/NotFoundPage";
 
 const pageRouter = createBrowserRouter([

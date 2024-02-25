@@ -21,6 +21,7 @@ export default function Landing() {
             text={"conic radial border on hover using a button"}
             action={"Enter"}
             image={"./conic-radial-button.png"}
+            link={"/buttons/glowButton"}
           ></Card>
           {[...Array(9)].map((e, index) => (
             <Card
@@ -29,7 +30,7 @@ export default function Landing() {
               text={"Supporting Text"}
               action={"Enter"}
               image={"./firsttest.png"}
-            ></Card>
+            />
           ))}
         </Content>
         <footer>
