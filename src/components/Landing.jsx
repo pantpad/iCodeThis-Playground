@@ -18,7 +18,7 @@ export default function Landing() {
         >
           <Card
             headline={"Conic Radial Border"}
-            text={"conic radial border on hover using a button"}
+            text={"Rotating glow on a button when hovering"}
             action={"Enter"}
             image={"./conic-radial-button.png"}
             link={"/buttons/glowButton"}
