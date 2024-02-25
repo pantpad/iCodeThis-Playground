@@ -16,7 +16,13 @@ export default function Landing() {
             "grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4"
           }
         >
-          {[...Array(10)].map((e, index) => (
+          <Card
+            headline={"Conic Radial Border"}
+            text={"conic radial border on hover using a button"}
+            action={"Enter"}
+            image={"./conic-radial-button.png"}
+          ></Card>
+          {[...Array(9)].map((e, index) => (
             <Card
               key={index}
               headline={"Headline"}
