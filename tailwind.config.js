@@ -8,7 +8,12 @@ export default {
   ],
   theme: {
     extend: {
-      keyframes: {},
+      keyframes: {
+        spinCustomAngle: {
+          "0%": { "--a": "0deg" },
+          "100%": { "--a": "360deg" },
+        },
+      },
     },
   },
   plugins: [],
