@@ -1,5 +1,6 @@
 import PageLayout from "../../layout/PageLayout";
 import TodoItemPage from "./TodoItemPage";
+import TodoContainer from "./TodoContainer";
 export default function TodoPage() {
   return (
     <PageLayout
@@ -31,18 +32,19 @@ export default function TodoPage() {
             </svg>
             <h1 className="text-xl">Groceries</h1>
           </div>
-          <div
-            id="todo-list"
-            className="overflow-auto rounded-md border border-slate-500 p-4 text-[clamp(0.6rem,1vw+1rem,1.12rem)]"
-          >
-            <ul className="flex flex-col gap-4 ">
-              {[...Array(5)].map((item, index) => (
-                <TodoItemPage key={index} todoName={"todoName"} />
-              ))}
-            </ul>
-          </div>
+          <TodoContainer>
+            {[...Array(5)].map((item, index) => (
+              <TodoItemPage key={index} todoName={"notCompletedTodo"} />
+            ))}
+          </TodoContainer>
         </section>
-        <section id="completed-todos">completed</section>
+        <section id="completed-todos">
+          <TodoContainer>
+            {[...Array(5)].map((item, index) => (
+              <TodoItemPage key={index} todoName={"completedTodo"} />
+            ))}
+          </TodoContainer>
+        </section>
         <section id="buttons">buttons</section>
       </div>
     </PageLayout>
