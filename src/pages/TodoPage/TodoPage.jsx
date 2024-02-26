@@ -1,6 +1,8 @@
 import PageLayout from "../../layout/PageLayout";
 import TodoItemPage from "./TodoItemPage";
 import TodoContainer from "./TodoContainer";
+import TodoTitle from "./TodoTitle";
+import TodoButton from "./TodoButton";
 export default function TodoPage() {
   return (
     <PageLayout
@@ -8,44 +10,46 @@ export default function TodoPage() {
         "flex h-[100vh] w-[min(25rem,100vw-2rem)] items-center justify-center border border-red-500"
       }
     >
-      <div className="flex w-full flex-col overflow-hidden rounded-md bg-white px-8 py-4 text-black max-sm:px-4">
-        <section id="todos" className="flex flex-col">
-          <div id="title" className="flex items-center justify-start gap-4">
-            <svg
-              fill="#000000"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-8"
-            >
-              <g id="SVGRepo_iconCarrier">
-                <path
-                  id="secondary"
-                  d="M18.5,20.5A1.5,1.5,0,1,1,17,19,1.5,1.5,0,0,1,18.5,20.5ZM11,19a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,11,19Z"
-                  style={{ fill: "#2ca9bc" }}
-                ></path>
-                <path
-                  id="primary"
-                  d="M18.2,14a1,1,0,0,0,.93-.63l2.8-7a1,1,0,0,0-.1-.93A1,1,0,0,0,21,5H7.88l-.7-1.74A2,2,0,0,0,5.32,2H3A1,1,0,0,0,3,4H5.32L8.9,13,7.83,15.11A2,2,0,0,0,9.62,18H19a1,1,0,0,0,0-2H9.62l1-2Z"
-                  style={{ fill: "#000000" }}
-                ></path>
-              </g>
-            </svg>
-            <h1 className="text-xl">Groceries</h1>
-          </div>
+      <div className="flex w-full flex-col gap-4 overflow-hidden rounded-md bg-white px-8 py-4 text-black max-sm:px-4">
+        <section id="todos" className="flex flex-1 flex-col">
+          <TodoTitle title={"Groceries"} />
           <TodoContainer>
             {[...Array(5)].map((item, index) => (
               <TodoItemPage key={index} todoName={"notCompletedTodo"} />
             ))}
           </TodoContainer>
         </section>
-        <section id="completed-todos">
+        <section id="completed-todos" className="flex-1">
+          <TodoTitle title={"Groceries"} />
           <TodoContainer>
             {[...Array(5)].map((item, index) => (
               <TodoItemPage key={index} todoName={"completedTodo"} />
             ))}
           </TodoContainer>
         </section>
-        <section id="buttons">buttons</section>
+        <section
+          id="buttons"
+          className="flex h-[100px] flex-wrap justify-between gap-4 overflow-auto"
+        >
+          <TodoButton>S</TodoButton>
+          <TodoButton>
+            <svg
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              id="cart-add"
+              xmlns="http://www.w3.org/2000/svg"
+              className="max-h-[50px] max-w-[50px]"
+            >
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M14,12a1,1,0,0,1-1-1V9H11a1,1,0,0,1,0-2h2V5a1,1,0,0,1,2,0V7h2a1,1,0,0,1,0,2H15v2A1,1,0,0,1,14,12Zm3,7a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,17,19Zm-6,0a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,11,19Z"
+                  style={{ fill: "#2ca9bc" }}
+                ></path>
+                <path d="M18.22,17H9.8a2,2,0,0,1-2-1.55L5.2,4H3A1,1,0,0,1,3,2H5.2a2,2,0,0,1,2,1.55L9.8,15h8.42L20,7.76A1,1,0,0,1,22,8.24l-1.81,7.25A2,2,0,0,1,18.22,17Z"></path>
+              </g>
+            </svg>
+          </TodoButton>
+        </section>
       </div>
     </PageLayout>
   );
