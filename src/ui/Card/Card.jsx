@@ -30,7 +30,7 @@ export default function Card({
           />
         ) : null}
       </section>
-      <section className="flex flex-1 flex-col items-start px-4 py-2">
+      <section className="flex flex-1 flex-col items-start justify-between  px-4 py-2">
         {headline ? (
           <h1 className="text-2xl font-semibold">{headline}</h1>
         ) : null}
