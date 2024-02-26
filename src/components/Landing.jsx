@@ -25,15 +25,13 @@ export default function Landing() {
             image={"./glowButton.png"}
             link={"/buttons/glowButton"}
           ></Card>
-          {[...Array(9)].map((e, index) => (
-            <Card
-              key={index}
-              headline={"Headline"}
-              text={"Supporting Text"}
-              action={"Enter"}
-              image={"./firsttest.png"}
-            />
-          ))}
+          <Card
+            headline={"Todo Page"}
+            text={"Todo Page with many functionalities"}
+            action={"Enter"}
+            image={"./glowButton.png"}
+            link={"/TodoPage"}
+          ></Card>
         </Content>
         <footer>
           <p>
