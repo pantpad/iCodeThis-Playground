@@ -35,7 +35,7 @@ export default function Card({
           <h1 className="text-2xl font-semibold">{headline}</h1>
         ) : null}
         {subhead ? <h2>{subhead}</h2> : null}
-        {text ? <p className="text-sm">{text}</p> : null}
+        {text ? <p className="text-left text-sm">{text}</p> : null}
         {action ? (
           <div className="flex">
             <Link to={link}>

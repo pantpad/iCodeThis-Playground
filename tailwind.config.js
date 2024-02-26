@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "rotating-border":
+          "conic-gradient(from var(--a),transparent,transparent,transparent,blue,transparent,transparent,transparent)",
+      },
       keyframes: {
         spinCustomAngle: {
           "0%": { "--a": "0deg" },

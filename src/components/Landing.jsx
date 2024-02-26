@@ -17,10 +17,12 @@ export default function Landing() {
           }
         >
           <Card
-            headline={"Conic Radial Border"}
-            text={"Rotating glow on a button when hovering"}
+            headline={"Animated Border rotating"}
+            text={
+              "Rotating glow on a button when hovering using conic gradient"
+            }
             action={"Enter"}
-            image={"./conic-radial-button.png"}
+            image={"./glowButton.png"}
             link={"/buttons/glowButton"}
           ></Card>
           {[...Array(9)].map((e, index) => (
