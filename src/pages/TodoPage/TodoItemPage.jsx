@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
 import TodoFAIcon from "./TodoFAIcon";
 
-export default function TodoItemPage({ icon, todoName, completed, ...props }) {
+export default function TodoItemPage({
+  id,
+  icon,
+  todoName,
+  completed,
+  onRemove,
+  ...props
+}) {
   let completedClass = "opacity-60";
 
   return (
@@ -14,7 +21,10 @@ export default function TodoItemPage({ icon, todoName, completed, ...props }) {
           <TodoFAIcon icon={icon} />
           <p>{todoName}</p>
         </div>
-        <button className="ml-auto [&>*]:transition-all [&>*]:duration-300">
+        <button
+          className="ml-auto [&>*]:transition-all [&>*]:duration-300"
+          onClick={!completed ? () => onRemove(id) : () => {}}
+        >
           <TodoFAIcon
             className={`${completed ? "hover:text-green-400" : "hover:text-red-500"}`}
             icon={`${completed ? "FaArrowCircleUp" : "FaTrash"}`}

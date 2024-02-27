@@ -37,6 +37,12 @@ export default function TodoPage() {
     });
   }
 
+  function handleRemoveTodo(id) {
+    setTodoList((prev) => {
+      return [...prev.filter((item) => item.id !== id)];
+    });
+  }
+
   return (
     <PageLayout
       className={
@@ -54,6 +60,7 @@ export default function TodoPage() {
                   key={item.id}
                   {...item}
                   onClick={() => handleTodoClick(item.id)}
+                  onRemove={handleRemoveTodo}
                 />
               ))}
           </TodoContainer>
