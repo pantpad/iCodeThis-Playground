@@ -4,6 +4,21 @@ import TodoContainer from "./TodoContainer";
 import TodoTitle from "./TodoTitle";
 import TodoButton from "./TodoButton";
 
+const todoList = [
+  {
+    id: Math.random() + Date.now(),
+    todoName: "firstTodo",
+    completed: false,
+    icon: "FaAccessibleIcon",
+  },
+  {
+    id: Math.random() + Date.now(),
+    todoName: "firstCompletedTodo",
+    completed: true,
+    icon: "FaShoppingBasket",
+  },
+];
+
 export default function TodoPage() {
   return (
     <PageLayout
@@ -15,21 +30,21 @@ export default function TodoPage() {
         <section id="todos" className="flex flex-1 flex-col">
           <TodoTitle title={"Groceries"} />
           <TodoContainer>
-            {[...Array(5)].map((item, index) => (
-              <TodoItemPage key={index} todoName={"notCompletedTodo"} />
-            ))}
+            {todoList
+              .filter((item) => item.completed === false)
+              .map((item) => (
+                <TodoItemPage key={item.id} {...item} />
+              ))}
           </TodoContainer>
         </section>
         <section id="completed-todos" className="flex-1">
           <TodoTitle title={"Groceries"} />
           <TodoContainer>
-            {[...Array(5)].map((item, index) => (
-              <TodoItemPage
-                key={index}
-                todoName={"completedTodo"}
-                icon={"FaShoppingBasket"}
-              />
-            ))}
+            {todoList
+              .filter((item) => item.completed === true)
+              .map((item) => (
+                <TodoItemPage key={item.id} {...item} />
+              ))}
           </TodoContainer>
         </section>
         <section
