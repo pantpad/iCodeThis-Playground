@@ -1,13 +1,19 @@
 /* eslint-disable react/prop-types */
-export default function TodoItemPage({ todoName }) {
+import TodoFAIcon from "./TodoFAIcon";
+
+export default function TodoItemPage({ icon, todoName }) {
+  console.log(icon);
+
   return (
     <>
-      <li className="flex items-center">
-        <div className="flex gap-2">
-          <img src="" alt="" width={20} height={20} />
+      <li className="flex items-center p-2 transition-all duration-300 hover:bg-slate-100">
+        <div className="flex items-center gap-2">
+          <TodoFAIcon icon={icon} />
           <p>{todoName}</p>
         </div>
-        <button className="ml-auto">Delete</button>
+        <button className="ml-auto transition-all duration-300 hover:text-red-500">
+          <TodoFAIcon icon={"FaTrash"} />
+        </button>
       </li>
     </>
   );

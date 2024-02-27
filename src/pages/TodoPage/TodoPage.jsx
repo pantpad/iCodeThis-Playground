@@ -3,11 +3,12 @@ import TodoItemPage from "./TodoItemPage";
 import TodoContainer from "./TodoContainer";
 import TodoTitle from "./TodoTitle";
 import TodoButton from "./TodoButton";
+
 export default function TodoPage() {
   return (
     <PageLayout
       className={
-        "flex h-[100vh] w-[min(25rem,100vw-2rem)] items-center justify-center border border-red-500"
+        "flex h-[100vh] w-[min(28rem,100vw-2rem)] items-center justify-center border border-red-500"
       }
     >
       <div className="flex w-full flex-col gap-4 overflow-hidden rounded-md bg-white px-8 py-4 text-black max-sm:px-4">
@@ -23,13 +24,17 @@ export default function TodoPage() {
           <TodoTitle title={"Groceries"} />
           <TodoContainer>
             {[...Array(5)].map((item, index) => (
-              <TodoItemPage key={index} todoName={"completedTodo"} />
+              <TodoItemPage
+                key={index}
+                todoName={"completedTodo"}
+                icon={"FaShoppingBasket"}
+              />
             ))}
           </TodoContainer>
         </section>
         <section
           id="buttons"
-          className="flex h-[100px] flex-wrap justify-between gap-4 overflow-auto"
+          className="flex h-[64px] flex-wrap justify-between gap-4 overflow-auto"
         >
           <TodoButton>S</TodoButton>
           <TodoButton>
@@ -38,7 +43,7 @@ export default function TodoPage() {
               viewBox="0 0 24 24"
               id="cart-add"
               xmlns="http://www.w3.org/2000/svg"
-              className="max-h-[50px] max-w-[50px]"
+              className="max-h-[32px] max-w-[32px]"
             >
               <g id="SVGRepo_iconCarrier">
                 <path
