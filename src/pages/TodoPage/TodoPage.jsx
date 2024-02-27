@@ -1,10 +1,12 @@
+import { useState } from "react";
+
 import PageLayout from "../../layout/PageLayout";
 import TodoItemPage from "./TodoItemPage";
 import TodoContainer from "./TodoContainer";
 import TodoTitle from "./TodoTitle";
 import TodoButton from "./TodoButton";
 
-const todoList = [
+const initialTodoList = [
   {
     id: Math.random() + Date.now(),
     todoName: "firstTodo",
@@ -20,6 +22,13 @@ const todoList = [
 ];
 
 export default function TodoPage() {
+  const [todoList, setTodoList] = useState(initialTodoList);
+
+  function handleCompleteTodo() {
+    console.log("put todo below");
+  }
+  function handleUncheckTodo() {}
+
   return (
     <PageLayout
       className={
@@ -33,7 +42,11 @@ export default function TodoPage() {
             {todoList
               .filter((item) => item.completed === false)
               .map((item) => (
-                <TodoItemPage key={item.id} {...item} />
+                <TodoItemPage
+                  key={item.id}
+                  {...item}
+                  onClick={handleCompleteTodo}
+                />
               ))}
           </TodoContainer>
         </section>
