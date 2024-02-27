@@ -8,13 +8,13 @@ import TodoButton from "./TodoButton";
 
 const initialTodoList = [
   {
-    id: Math.random() + Date.now(),
+    id: Math.floor(Math.random() * Date.now()),
     todoName: "firstTodo",
     completed: false,
     icon: "FaAccessibleIcon",
   },
   {
-    id: Math.random() + Date.now(),
+    id: Math.floor(Math.random() * Date.now()),
     todoName: "firstCompletedTodo",
     completed: true,
     icon: "FaShoppingBasket",
@@ -24,10 +24,30 @@ const initialTodoList = [
 export default function TodoPage() {
   const [todoList, setTodoList] = useState(initialTodoList);
 
-  function handleCompleteTodo() {
-    console.log("put todo below");
+  function handleCompleteTodo(id) {
+    setTodoList((prev) => {
+      return [
+        ...prev.map((item) => {
+          if (item.id === id) {
+            return { ...item, completed: true };
+          }
+          return item;
+        }),
+      ];
+    });
   }
-  function handleUncheckTodo() {}
+  function handleUncheckTodo(id) {
+    setTodoList((prev) => {
+      return [
+        ...prev.map((item) => {
+          if (item.id === id) {
+            return { ...item, completed: false };
+          }
+          return item;
+        }),
+      ];
+    });
+  }
 
   return (
     <PageLayout
@@ -45,7 +65,7 @@ export default function TodoPage() {
                 <TodoItemPage
                   key={item.id}
                   {...item}
-                  onClick={handleCompleteTodo}
+                  onClick={() => handleCompleteTodo(item.id)}
                 />
               ))}
           </TodoContainer>
@@ -56,7 +76,11 @@ export default function TodoPage() {
             {todoList
               .filter((item) => item.completed === true)
               .map((item) => (
-                <TodoItemPage key={item.id} {...item} />
+                <TodoItemPage
+                  key={item.id}
+                  {...item}
+                  onClick={() => handleUncheckTodo(item.id)}
+                />
               ))}
           </TodoContainer>
         </section>
