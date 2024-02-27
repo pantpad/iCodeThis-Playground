@@ -24,24 +24,12 @@ const initialTodoList = [
 export default function TodoPage() {
   const [todoList, setTodoList] = useState(initialTodoList);
 
-  function handleCompleteTodo(id) {
+  function handleTodoClick(id) {
     setTodoList((prev) => {
       return [
         ...prev.map((item) => {
           if (item.id === id) {
-            return { ...item, completed: true };
-          }
-          return item;
-        }),
-      ];
-    });
-  }
-  function handleUncheckTodo(id) {
-    setTodoList((prev) => {
-      return [
-        ...prev.map((item) => {
-          if (item.id === id) {
-            return { ...item, completed: false };
+            return { ...item, completed: !item.completed };
           }
           return item;
         }),
@@ -65,7 +53,7 @@ export default function TodoPage() {
                 <TodoItemPage
                   key={item.id}
                   {...item}
-                  onClick={() => handleCompleteTodo(item.id)}
+                  onClick={() => handleTodoClick(item.id)}
                 />
               ))}
           </TodoContainer>
@@ -79,7 +67,7 @@ export default function TodoPage() {
                 <TodoItemPage
                   key={item.id}
                   {...item}
-                  onClick={() => handleUncheckTodo(item.id)}
+                  onClick={() => handleTodoClick(item.id)}
                 />
               ))}
           </TodoContainer>
