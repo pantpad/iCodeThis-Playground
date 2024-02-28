@@ -5,6 +5,7 @@ import TodoItemPage from "./TodoItemPage";
 import TodoContainer from "./TodoContainer";
 import TodoTitle from "./TodoTitle";
 import TodoButton from "./TodoButton";
+import TodoAddMenu from "./TodoAddMenu";
 
 const initialTodoList = [
   {
@@ -23,6 +24,7 @@ const initialTodoList = [
 
 export default function TodoPage() {
   const [todoList, setTodoList] = useState(initialTodoList);
+  const [isAdding, setIsAdding] = useState(true);
 
   function handleTodoClick(id) {
     setTodoList((prev) => {
@@ -113,6 +115,7 @@ export default function TodoPage() {
             </svg>
           </TodoButton>
         </section>
+        {isAdding ? <TodoAddMenu /> : null}
       </div>
     </PageLayout>
   );
