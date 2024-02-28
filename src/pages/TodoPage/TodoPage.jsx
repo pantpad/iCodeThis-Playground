@@ -67,10 +67,10 @@ export default function TodoPage() {
   return (
     <PageLayout
       className={
-        "flex h-[100vh] w-[min(28rem,100vw-2rem)] items-center justify-center border border-red-500"
+        "flex h-[100vh] w-[min(28rem,100vw-2rem)] items-center justify-center"
       }
     >
-      <div className="relative flex w-full flex-col gap-4 rounded-md bg-white px-8 py-4 text-black max-sm:px-4">
+      <div className="relative flex w-full flex-col gap-4 rounded-xl bg-white p-8 text-black max-sm:px-4">
         <section id="todos" className="flex flex-1 flex-col">
           <TodoTitle title={"Groceries"} />
           <TodoContainer>
