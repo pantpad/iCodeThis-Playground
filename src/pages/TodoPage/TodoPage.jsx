@@ -45,8 +45,23 @@ export default function TodoPage() {
     });
   }
 
-  function handleAddNewTodoClick() {
+  function handleNewTodoPage() {
     setIsAdding((prev) => !prev);
+  }
+
+  function handleAddNewTodo(input, selectedIcon = "FaAccessibleIcon") {
+    setTodoList((prev) => {
+      return [
+        ...prev,
+        {
+          id: Math.floor(Math.random() * Date.now()),
+          todoName: input,
+          completed: false,
+          icon: selectedIcon,
+        },
+      ];
+    });
+    handleNewTodoPage();
   }
 
   return (
@@ -101,7 +116,7 @@ export default function TodoPage() {
             className={
               "relative h-[64px] after:absolute after:right-[110%]  after:top-1 after:origin-right after:scale-x-0 after:text-[rgba(29,205,232,1)] after:transition-all after:duration-200 after:ease-in-out after:content-['Add_Todo'] hover:after:scale-x-100"
             }
-            onClick={handleAddNewTodoClick}
+            onClick={handleNewTodoPage}
           >
             <svg
               fill="currentColor"
@@ -120,7 +135,9 @@ export default function TodoPage() {
             </svg>
           </TodoButton>
         </section>
-        {isAdding ? <TodoAddMenu onClose={handleAddNewTodoClick} /> : null}
+        {isAdding ? (
+          <TodoAddMenu onClose={handleNewTodoPage} onAdd={handleAddNewTodo} />
+        ) : null}
       </div>
     </PageLayout>
   );
