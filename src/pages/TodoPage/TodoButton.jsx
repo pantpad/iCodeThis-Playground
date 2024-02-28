@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-export default function TodoButton({ children, ...props }) {
+export default function TodoButton({ className, children, ...props }) {
   return (
     <button
-      className="flex aspect-square w-[64px] items-center justify-center rounded-md bg-slate-100"
+      className={`${className ? className + " " : ""}flex w-[64px] items-center justify-center rounded-md border border-[#2ca9bc50]`}
       {...props}
     >
       {children}

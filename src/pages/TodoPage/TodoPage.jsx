@@ -83,8 +83,19 @@ export default function TodoPage() {
           id="buttons"
           className="flex h-[64px] flex-wrap justify-between gap-4 overflow-auto"
         >
-          <TodoButton>S</TodoButton>
-          <TodoButton>
+          <div className="group relative">
+            <TodoButton className={"h-[64px] group-hover:bg-slate-100"}>
+              S
+            </TodoButton>
+            <span className="absolute left-[110%] top-1 origin-left scale-x-0 text-left text-[rgba(29,205,232,1)] transition-all duration-200 ease-in-out group-hover:scale-x-100">
+              More Confetti
+            </span>
+          </div>
+          <TodoButton
+            className={
+              "relative h-[64px] after:absolute after:right-[110%]  after:top-1 after:origin-right after:scale-x-0 after:text-[rgba(29,205,232,1)] after:transition-all after:duration-200 after:ease-in-out after:content-['Add_Todo'] hover:after:scale-x-100"
+            }
+          >
             <svg
               fill="currentColor"
               viewBox="0 0 24 24"

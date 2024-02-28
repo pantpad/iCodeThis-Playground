@@ -26,7 +26,7 @@ export default function TodoItemPage({
           onClick={!completed ? () => onRemove(id) : () => {}}
         >
           <TodoFAIcon
-            className={`${completed ? "hover:text-green-400" : "hover:text-red-500"}`}
+            className={`${completed ? "text-sm hover:text-green-400" : "text-sm hover:text-red-500"}`}
             icon={`${completed ? "FaArrowCircleUp" : "FaTrash"}`}
           />
         </button>
