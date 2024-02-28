@@ -45,13 +45,17 @@ export default function TodoPage() {
     });
   }
 
+  function handleAddNewTodoClick() {
+    setIsAdding((prev) => !prev);
+  }
+
   return (
     <PageLayout
       className={
         "flex h-[100vh] w-[min(28rem,100vw-2rem)] items-center justify-center border border-red-500"
       }
     >
-      <div className="flex w-full flex-col gap-4 overflow-hidden rounded-md bg-white px-8 py-4 text-black max-sm:px-4">
+      <div className="relative flex w-full flex-col gap-4 overflow-hidden rounded-md bg-white px-8 py-4 text-black max-sm:px-4">
         <section id="todos" className="flex flex-1 flex-col">
           <TodoTitle title={"Groceries"} />
           <TodoContainer>
@@ -97,6 +101,7 @@ export default function TodoPage() {
             className={
               "relative h-[64px] after:absolute after:right-[110%]  after:top-1 after:origin-right after:scale-x-0 after:text-[rgba(29,205,232,1)] after:transition-all after:duration-200 after:ease-in-out after:content-['Add_Todo'] hover:after:scale-x-100"
             }
+            onClick={handleAddNewTodoClick}
           >
             <svg
               fill="currentColor"
@@ -115,7 +120,7 @@ export default function TodoPage() {
             </svg>
           </TodoButton>
         </section>
-        {isAdding ? <TodoAddMenu /> : null}
+        {isAdding ? <TodoAddMenu onClose={handleAddNewTodoClick} /> : null}
       </div>
     </PageLayout>
   );
