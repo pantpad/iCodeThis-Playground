@@ -1,5 +1,10 @@
 /* eslint-disable react/prop-types */
+
+import { useRef } from "react";
+
 export default function TodoAddMenu({ onClose, onAdd }) {
+  const input = useRef();
+
   return (
     <section
       className={
@@ -16,8 +21,17 @@ export default function TodoAddMenu({ onClose, onAdd }) {
         </div>
       </section>
       <section id="todo-name" className="flex flex-col gap-2 [&>*]:p-2">
-        <input type="text" className="rounded-md border border-slate-500" />
-        <button className="rounded-md bg-sky-400" onClick={onAdd}>
+        <input
+          type="text"
+          ref={input}
+          className="rounded-md border border-slate-500"
+        />
+        <button
+          className="rounded-md bg-sky-400"
+          onClick={() => {
+            onAdd(input.current.value);
+          }}
+        >
           Add Todo
         </button>
       </section>

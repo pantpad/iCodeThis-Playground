@@ -24,7 +24,7 @@ const initialTodoList = [
 
 export default function TodoPage() {
   const [todoList, setTodoList] = useState(initialTodoList);
-  const [isAdding, setIsAdding] = useState(true);
+  const [isAdding, setIsAdding] = useState(false);
 
   function handleTodoClick(id) {
     setTodoList((prev) => {
