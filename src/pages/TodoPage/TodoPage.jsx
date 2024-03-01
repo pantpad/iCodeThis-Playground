@@ -6,6 +6,7 @@ import TodoContainer from "./TodoContainer";
 import TodoTitle from "./TodoTitle";
 import TodoButton from "./TodoButton";
 import TodoAddMenu from "./TodoAddMenu";
+import Inspo from "../../layout/Inspo";
 
 const initialTodoList = [
   {
@@ -66,16 +67,7 @@ export default function TodoPage() {
 
   return (
     <>
-      <section className="">
-        <a href="https://icodethis.com/submissions/68474" target="_blank">
-          {" "}
-          Inspo
-          <span className="text-blue drop-shadow-md hover:text-yellow-300">
-            {" "}
-            here
-          </span>
-        </a>
-      </section>
+      <Inspo href={"https://icodethis.com/submissions/68474"} />
       <PageLayout
         className={
           "relative flex h-[100vh] w-[min(28rem,100vw-2rem)] items-center justify-center"
