@@ -12,7 +12,14 @@ import { useState } from "react";
 let detailCache = {
   info: (
     <>
-      <h1>info</h1>
+      <section className="flex justify-around gap-2 p-4 [&_span]:h-6 [&_span]:w-6 [&_span]:cursor-pointer [&_span]:transition-all [&_span]:duration-150 hover:[&_span]:scale-125">
+        <span className="rounded-full border border-white bg-black"></span>
+        <span className="rounded-full border border-white bg-sky-400"></span>
+        <span className="rounded-full border border-white bg-yellow-400"></span>
+        <span className="rounded-full border border-white bg-purple-400"></span>
+        <span className="rounded-full border border-white bg-red-400"></span>
+        <span className="rounded-full border border-white bg-green-400"></span>
+      </section>
     </>
   ),
   headset: (
@@ -97,7 +104,6 @@ export default function FormDarkTheme() {
           {isContentVisible ? (
             <>
               <div className="absolute left-0 top-[110%] w-full rounded-md border border-white/35">
-                <h1>content box</h1>
                 {selectedDetail}
               </div>
             </>
