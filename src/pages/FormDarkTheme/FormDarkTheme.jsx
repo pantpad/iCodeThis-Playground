@@ -24,7 +24,52 @@ let detailCache = {
   ),
   headset: (
     <>
-      <h1>headset</h1>
+      <section id="form" className="flex flex-col gap-2 p-4">
+        <div className="flex justify-center gap-4">
+          <HeadsetMicIcon className="!h-12 !w-12 text-sky-400" />
+          <div className="flex flex-1 flex-col items-start gap-2 text-start">
+            <h2 className="text-3xl">Hi</h2>
+            <p className="text-sm">
+              One of our consultants will assist you as soon as they can!
+            </p>
+          </div>
+        </div>
+        <div className="flex min-w-0 flex-col items-start gap-[5px]">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            className="w-full rounded-md border border-white/35 bg-transparent p-2"
+          />
+        </div>
+        <div className="flex min-w-0 flex-col items-start gap-[5px]">
+          <label htmlFor="Email">Email</label>
+          <input
+            type="text"
+            id="Email"
+            className="w-full rounded-md border border-white/35 bg-transparent p-2"
+          />
+        </div>
+        <div className="flex min-w-0 flex-col items-start gap-[5px]">
+          <label htmlFor="Phone">Phone</label>
+          <input
+            type="text"
+            id="Phone"
+            className="w-full rounded-md border border-white/35 bg-transparent p-2"
+          />
+        </div>
+        <div className="flex min-w-0 flex-col items-start gap-[5px]">
+          <label htmlFor="Message">Message</label>
+          <textarea
+            type="text"
+            id="Message"
+            className="w-full rounded-md border border-white/35 bg-transparent p-2"
+          />
+        </div>
+        <button className="mt-2 w-full rounded-md bg-red-600 p-2 text-center text-white">
+          Start Chat
+        </button>
+      </section>
     </>
   ),
   shield: (
@@ -49,14 +94,12 @@ export default function FormDarkTheme() {
     <>
       <Inspo href={"https://icodethis.com/submissions/71507"} />
       <PageLayout
-        className={
-          "h-[97vh] w-[min(35rem,100vw-2rem)] items-center justify-center"
-        }
+        className={"h-[100vh] w-[min(35rem,100vw-2rem)] items-center"}
       >
         <div className="relative w-full">
           <section
             id="bar"
-            className="relative flex w-full overflow-hidden rounded-lg border border-white/35 
+            className="relative mt-10 flex w-full overflow-hidden rounded-lg border border-white/35 
             [&_article]:bg-black/20 
             [&_article]:transition-all 
             [&_article]:duration-300 
