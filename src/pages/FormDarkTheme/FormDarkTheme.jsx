@@ -5,8 +5,39 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import GppGoodIcon from "@mui/icons-material/GppGood";
 import DraftsIcon from "@mui/icons-material/Drafts";
+import { useState } from "react";
+
+//emailDetails
+//headsetDetails
+let detailCache = {
+  info: (
+    <>
+      <h1>info</h1>
+    </>
+  ),
+  headset: (
+    <>
+      <h1>headset</h1>
+    </>
+  ),
+  shield: (
+    <>
+      <h1>shield</h1>
+    </>
+  ),
+  email: (
+    <>
+      <h1>email</h1>
+    </>
+  ),
+};
 
 export default function FormDarkTheme() {
+  const [isContentVisible, setIsContentVisible] = useState(false);
+  const [currentDetail, setCurrentDetail] = useState(null);
+
+  let selectedDetail = detailCache[currentDetail] ?? "";
+
   return (
     <>
       <Inspo href={"https://icodethis.com/submissions/71507"} />
@@ -15,23 +46,63 @@ export default function FormDarkTheme() {
           "h-[97vh] w-[min(35rem,100vw-2rem)] items-center justify-center"
         }
       >
-        <section
-          id="bar"
-          className="flex w-full overflow-hidden rounded-lg border border-white/35"
-        >
-          <article className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8">
-            <MoreHorizIcon className="!h-8 !w-8 text-sky-400" />
-          </article>
-          <article className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8">
-            <HeadsetMicIcon className="!h-8 !w-8 text-sky-400" />
-          </article>
-          <article className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8">
-            <GppGoodIcon className="!h-8 !w-8 text-sky-400" />
-          </article>
-          <article className="flex flex-1 cursor-pointer items-center justify-center p-8">
-            <DraftsIcon className="!h-8 !w-8 text-sky-400" />
-          </article>
-        </section>
+        <div className="relative w-full">
+          <section
+            id="bar"
+            className="relative flex w-full overflow-hidden rounded-lg border border-white/35 
+            [&_article]:bg-black/20 
+            [&_article]:transition-all 
+            [&_article]:duration-300 
+            hover:[&_article]:bg-black/50 
+            active:[&_article]:bg-black/70 
+            active:[&_article]:duration-[50ms]"
+          >
+            <article
+              className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8 max-sm:p-4"
+              onClick={() => {
+                setIsContentVisible((prev) => !prev);
+                setCurrentDetail("info");
+              }}
+            >
+              <MoreHorizIcon className="!h-8 !w-8 text-sky-400" />
+            </article>
+            <article
+              className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8 max-sm:p-4"
+              onClick={() => {
+                setIsContentVisible((prev) => !prev);
+                setCurrentDetail("headset");
+              }}
+            >
+              <HeadsetMicIcon className="!h-8 !w-8 text-sky-400" />
+            </article>
+            <article
+              className="relative flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8 max-sm:p-4"
+              onClick={() => {
+                setIsContentVisible((prev) => !prev);
+                setCurrentDetail("shield");
+              }}
+            >
+              <GppGoodIcon className="!h-8 !w-8 text-sky-400" />
+            </article>
+            <article
+              className="flex flex-1 cursor-pointer items-center justify-center p-8 max-sm:p-4"
+              onClick={() => {
+                setIsContentVisible((prev) => !prev);
+                setCurrentDetail("email");
+              }}
+            >
+              <DraftsIcon className="!h-8 !w-8 text-sky-400" />
+            </article>
+          </section>
+          {isContentVisible ? (
+            <>
+              <div className="absolute left-0 top-[110%] w-full rounded-md border border-white/35">
+                <h1>content box</h1>
+                {selectedDetail}
+              </div>
+            </>
+          ) : null}
+        </div>
       </PageLayout>
     </>
   );
