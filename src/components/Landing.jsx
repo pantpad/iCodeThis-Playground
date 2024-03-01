@@ -29,7 +29,7 @@ export default function Landing() {
             headline={"Todo Page"}
             text={"Todo Page with many functionalities"}
             action={"Enter"}
-            image={"./glowButton.png"}
+            image={"./todo2.png"}
             link={"/TodoPage"}
           ></Card>
         </Content>
