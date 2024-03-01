@@ -3,6 +3,7 @@ import Landing from "../components/Landing";
 import GlowButton from "../pages/Buttons/GlowButton";
 import NotFoundPage from "../components/NotFoundPage";
 import TodoPage from "../pages/TodoPage/TodoPage";
+import FormDarkTheme from "../pages/FormDarkTheme/FormDarkTheme";
 
 const pageRouter = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const pageRouter = createBrowserRouter([
   {
     path: "/TodoPage",
     element: <TodoPage />,
+  },
+  {
+    path: "/FormDarkTheme",
+    element: <FormDarkTheme />,
   },
 ]);
 export { pageRouter };

@@ -32,6 +32,13 @@ export default function Landing() {
             image={"./todo2.png"}
             link={"/TodoPage"}
           ></Card>
+          <Card
+            headline={"Form Dark Theme"}
+            text={"Vertical Icons w/Dark Theme"}
+            action={"Enter"}
+            image={"./todo2.png"}
+            link={"/FormDarkTheme"}
+          ></Card>
         </Content>
         <footer>
           <p>
