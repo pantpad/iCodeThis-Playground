@@ -19,16 +19,16 @@ export default function FormDarkTheme() {
           id="bar"
           className="flex w-full overflow-hidden rounded-lg border border-white/35"
         >
-          <article className="flex flex-1 items-center justify-center p-8">
+          <article className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8">
             <MoreHorizIcon className="!h-8 !w-8 text-sky-400" />
           </article>
-          <article className="flex flex-1 items-center justify-center p-8">
+          <article className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8">
             <HeadsetMicIcon className="!h-8 !w-8 text-sky-400" />
           </article>
-          <article className="flex flex-1 items-center justify-center p-8">
+          <article className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8">
             <GppGoodIcon className="!h-8 !w-8 text-sky-400" />
           </article>
-          <article className="flex flex-1 items-center justify-center p-8">
+          <article className="flex flex-1 cursor-pointer items-center justify-center p-8">
             <DraftsIcon className="!h-8 !w-8 text-sky-400" />
           </article>
         </section>
