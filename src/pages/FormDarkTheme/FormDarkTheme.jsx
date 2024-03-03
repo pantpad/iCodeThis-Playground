@@ -7,10 +7,8 @@ import GppGoodIcon from "@mui/icons-material/GppGood";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import { useState } from "react";
 
-//emailDetails
-//headsetDetails
-let detailCache = {
-  info: (
+function Info() {
+  return (
     <>
       <section className="flex justify-around gap-2 p-4 [&_span]:h-6 [&_span]:w-6 [&_span]:cursor-pointer [&_span]:transition-all [&_span]:duration-150 hover:[&_span]:scale-125">
         <span className="rounded-full border border-white bg-black"></span>
@@ -21,8 +19,11 @@ let detailCache = {
         <span className="rounded-full border border-white bg-green-400"></span>
       </section>
     </>
-  ),
-  headset: (
+  );
+}
+
+function HeadSet() {
+  return (
     <>
       <section id="form" className="flex flex-col gap-2 p-4">
         <div className="flex justify-center gap-4">
@@ -71,17 +72,64 @@ let detailCache = {
         </button>
       </section>
     </>
-  ),
-  shield: (
+  );
+}
+
+function Shield() {
+  return (
     <>
-      <h1>shield</h1>
+      <section className="flex gap-4 overflow-auto p-4">
+        <div className="mx-auto min-w-[50px]">
+          <GppGoodIcon className="!h-16 !w-16 text-sky-400" />
+        </div>
+        <div className="flex-1 text-left [&>*]:mb-2">
+          <h2 className="text-2xl">Show others that you are safe</h2>
+          <p>
+            If you approve your profile with BankID, you are perceived as a
+            safer person to trade with.
+          </p>
+          <button className="rounded-md bg-sky-300 p-2 text-white">
+            Get Started
+          </button>
+        </div>
+      </section>
     </>
-  ),
-  email: (
+  );
+}
+function Email() {
+  return (
     <>
-      <h1>email</h1>
+      <section className="flex gap-4 p-4">
+        <div>
+          <DraftsIcon className="!h-16 !w-16 text-sky-400" />
+        </div>
+        <div className="text-left">
+          <h2 className="mb-2 text-2xl">Subscribe to the newsletter</h2>
+          <div className="flex gap-2">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Enter email address"
+              className="rounded-md border border-white/35 bg-black/10 p-2"
+            />
+            <button className="h-[50px] w-[50px] rounded-md bg-sky-400 uppercase text-white">
+              ok
+            </button>
+          </div>
+        </div>
+      </section>
     </>
-  ),
+  );
+}
+
+//emailDetails
+//headsetDetails
+let detailCache = {
+  info: <Info></Info>,
+  headset: <HeadSet></HeadSet>,
+  shield: <Shield></Shield>,
+  email: <Email></Email>,
 };
 
 export default function FormDarkTheme() {
@@ -146,7 +194,7 @@ export default function FormDarkTheme() {
           </section>
           {isContentVisible ? (
             <>
-              <div className="absolute left-0 top-[110%] w-full rounded-md border border-white/35">
+              <div className="absolute left-0 top-[110%] w-full rounded-md border border-white/35 bg-black/20">
                 {selectedDetail}
               </div>
             </>
