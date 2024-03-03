@@ -147,19 +147,32 @@ export default function FormDarkTheme() {
         <div className="group relative w-full">
           <section
             id="bar"
-            className="relative mt-10 flex w-full overflow-hidden rounded-lg border border-white/35 
+            className="mt-10 flex w-full overflow-hidden rounded-lg border border-white/35 
+            [&_article]:relative
+            [&_article]:isolate
             [&_article]:bg-black/20 
-            [&_article]:transition-all 
-            [&_article]:duration-300 
-            hover:[&_article]:bg-black/50 
-            active:[&_article]:bg-black/70 
-            active:[&_article]:duration-[50ms]"
+            [&_article]:duration-300
+            [&_article]:before:absolute
+            [&_article]:before:inset-full
+            [&_article]:before:isolate
+            [&_article]:before:z-[-30]
+            [&_article]:before:bg-black/50
+            [&_article]:before:transition-all
+            [&_article]:before:duration-300
+            hover:[&_article]:before:inset-0 
+            active:[&_article]:bg-black/70
+            active:[&_article]:duration-[50ms]
+            "
           >
             <article
               className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8 max-sm:p-4"
               onClick={() => {
-                setIsContentVisible((prev) => !prev);
-                setCurrentDetail("info");
+                if (isContentVisible && currentDetail !== "info") {
+                  setCurrentDetail("info");
+                } else {
+                  setIsContentVisible((prev) => !prev);
+                  setCurrentDetail("info");
+                }
               }}
             >
               <MoreHorizIcon className="!h-8 !w-8 text-sky-400" />
@@ -167,8 +180,12 @@ export default function FormDarkTheme() {
             <article
               className="flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8 max-sm:p-4"
               onClick={() => {
-                setIsContentVisible((prev) => !prev);
-                setCurrentDetail("headset");
+                if (isContentVisible && currentDetail !== "headset") {
+                  setCurrentDetail("headset");
+                } else {
+                  setIsContentVisible((prev) => !prev);
+                  setCurrentDetail("headset");
+                }
               }}
             >
               <HeadsetMicIcon className="!h-8 !w-8 text-sky-400" />
@@ -176,8 +193,12 @@ export default function FormDarkTheme() {
             <article
               className="relative flex flex-1 cursor-pointer items-center justify-center border-r border-white/35 p-8 max-sm:p-4"
               onClick={() => {
-                setIsContentVisible((prev) => !prev);
-                setCurrentDetail("shield");
+                if (isContentVisible && currentDetail !== "shield") {
+                  setCurrentDetail("shield");
+                } else {
+                  setIsContentVisible((prev) => !prev);
+                  setCurrentDetail("shield");
+                }
               }}
             >
               <GppGoodIcon className="!h-8 !w-8 text-sky-400" />
@@ -185,8 +206,12 @@ export default function FormDarkTheme() {
             <article
               className="flex flex-1 cursor-pointer items-center justify-center p-8 max-sm:p-4"
               onClick={() => {
-                setIsContentVisible((prev) => !prev);
-                setCurrentDetail("email");
+                if (isContentVisible && currentDetail !== "email") {
+                  setCurrentDetail("email");
+                } else {
+                  setIsContentVisible((prev) => !prev);
+                  setCurrentDetail("email");
+                }
               }}
             >
               <DraftsIcon className="!h-8 !w-8 text-sky-400" />
