@@ -113,7 +113,7 @@ function Email() {
               placeholder="Enter email address"
               className="rounded-md border border-white/35 bg-black/10 p-2"
             />
-            <button className="h-[50px] w-[50px] rounded-md bg-sky-400 uppercase text-white">
+            <button className="relative isolate h-[50px] w-[50px] overflow-hidden rounded-md border border-white/20 bg-sky-400 uppercase text-white transition-all duration-300 before:absolute before:inset-0 before:z-[-10] before:h-full before:w-full before:rounded-md before:bg-black/25 before:opacity-0 before:content-[''] hover:before:opacity-100">
               ok
             </button>
           </div>
