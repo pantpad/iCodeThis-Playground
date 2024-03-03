@@ -144,7 +144,7 @@ export default function FormDarkTheme() {
       <PageLayout
         className={"h-[100vh] w-[min(35rem,100vw-2rem)] items-center"}
       >
-        <div className="relative w-full">
+        <div className="group relative w-full">
           <section
             id="bar"
             className="relative mt-10 flex w-full overflow-hidden rounded-lg border border-white/35 
@@ -192,13 +192,11 @@ export default function FormDarkTheme() {
               <DraftsIcon className="!h-8 !w-8 text-sky-400" />
             </article>
           </section>
-          {isContentVisible ? (
-            <>
-              <div className="absolute left-0 top-[110%] w-full rounded-md border border-white/35 bg-black/20">
-                {selectedDetail}
-              </div>
-            </>
-          ) : null}
+          <div
+            className={`${isContentVisible ? "animate-[fade-in_0.3s_ease-out_forwards] " : "animate-[fade-out_0.3s_ease-in_forwards] "} absolute left-0 top-[110%] w-full rounded-md border border-white/35 bg-black/20`}
+          >
+            {selectedDetail}
+          </div>
         </div>
       </PageLayout>
     </>
