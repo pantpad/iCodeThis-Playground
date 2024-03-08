@@ -39,6 +39,13 @@ export default function Landing() {
             image={"./todo2.png"}
             link={"/FormDarkTheme"}
           ></Card>
+          <Card
+            headline={"Hamburger"}
+            text={"Responsive Hamburger Menu"}
+            action={"Enter"}
+            image={"./todo2.png"}
+            link={"/Hamburger"}
+          ></Card>
         </Content>
         <footer>
           <p>
